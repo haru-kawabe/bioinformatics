@@ -1,0 +1,4 @@
+(base) harun@LAPTOP-6KLV0JSI:~$ bcftools filter \
+  -i 'GT="1/1" && DP>=20 && QUAL>=30 && MQ>=30 && (DP4[2]+DP4[3])/(DP4[0]+DP4[1]+DP4[2]+DP4[3])>=0.8' \
+  /mnt/c/Users/harun/Desktop/tomato/TOMJPE0252-1_refseq.vcf \
+  -Ov -o /mnt/c/Users/harun/Desktop/tomato/TOMJPE0252-1_refseq.filtered.vcf
