@@ -12,3 +12,8 @@ focused on long-read sequencing and variant analysis.
 ## Environment
 - Linux
 - Bash / Python / R
+
+## Example
+```bash
+minimap2 -ax map-ont ref.fasta reads.fastq | samtools sort -o aln.bam
+
