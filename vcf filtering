@@ -1,3 +1,14 @@
+(align_env) harun@LAPTOP-6KLV0JSI:~$ mkdir -p /home/harun/tmp_sort
+
+bowtie2 --very-sensitive -k 1 -p 8 \
+  -x /mnt/c/Users/harun/Desktop/tomato/tomato_bt2 \
+  -1 /mnt/c/Users/harun/Desktop/tomato/TOMJPE0252-1_fp_R1.fastq.gz \
+  -2 /mnt/c/Users/harun/Desktop/tomato/TOMJPE0252-1_fp_R2.fastq.gz \
+  2> /mnt/c/Users/harun/Desktop/tomato/TOMJPE0252.bowtie2.log | \
+samtools view -@ 8 -b -f 2 -q 30 | \
+samtools sort -@ 8 -T /home/harun/tmp_sort \
+  -o /mnt/c/Users/harun/Desktop/tomato/TOMJPE0252.unique.bam
+
 (base) harun@LAPTOP-6KLV0JSI:~$ bcftools filter \
   -i 'GT="1/1" && DP>=20 && QUAL>=30 && MQ>=30 && (DP4[2]+DP4[3])/(DP4[0]+DP4[1]+DP4[2]+DP4[3])>=0.8' \
   /mnt/c/Users/harun/Desktop/tomato/TOMJPE0252-1_refseq.vcf \
